@@ -1,0 +1,5 @@
+# Ignore terraform dirs
+**.terraform**
+
+# Ignore Idea
+**.idea
