@@ -6,7 +6,7 @@ locals {
 
 # Create listed iam users within target account
 resource aws_iam_user "iam_service_users" {
-  for_each = var.service_iam_users
+  for_each = toset(var.service_iam_users)
   name = each.value
 }
 
@@ -17,7 +17,10 @@ resource aws_iam_group "service_users_group"{
 resource aws_iam_group_membership "adding_service_users" {
   name = "candyland_group_membership"
   group = aws_iam_group.service_users_group.name
-  users = aws_iam_user.iam_service_users[*].name
+  users = [
+    for user in aws_iam_user.iam_service_users:
+          user.name
+  ]
 }
 
 resource aws_iam_policy "service_users_group_policy" {
