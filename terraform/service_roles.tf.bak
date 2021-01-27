@@ -12,7 +12,7 @@ resource aws_iam_role "home_account_tf_service_role" {
 
 resource aws_iam_policy "home_account_tf_service_role_permissions" {
  name = "home-account-tf-service-role-policy"
- policy = templatefile("${path.module}/tf-templates/service_role_permissions_policy", {
+ policy = templatefile("${path.module}/tf-templates/service_role_permissions_policy.tmpl", {
   allowed_permissions: local.home_service_role_permissions
  })
 }

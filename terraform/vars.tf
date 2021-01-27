@@ -4,7 +4,7 @@
 
 # IAM credentials
 variable "source_provider_assume_role_arn" {
-  type = map
+  type = string
   description = "Configuration map for targeted resources"
 }
 
