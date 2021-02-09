@@ -10,6 +10,12 @@ resource aws_iam_user "iam_service_users" {
   name = each.value
 }
 
+resource aws_iam_user_policy_attachment "s3_policy_attachment" {
+  for_each = aws_iam_user.iam_service_users
+  user = each.value.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonS3FullAccess"
+}
+
 resource aws_iam_group "service_users_group"{
   name = "candyland-service-users"
 }
