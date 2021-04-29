@@ -1,6 +1,7 @@
 locals {
 
  home_service_role_permissions = [
+  "autoscaling:*",
   "ec2:*",
   "vpc:*",
   "lambda:*",
@@ -12,6 +13,7 @@ locals {
   "sns:*",
   "eks:*",
   "rds:*",
+  "iam:*"
   ]
 
   allowed_service_users = [
