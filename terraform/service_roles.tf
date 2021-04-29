@@ -13,7 +13,8 @@ locals {
   "sns:*",
   "eks:*",
   "rds:*",
-  "iam:*"
+  "iam:*",
+  "ssm:*"
   ]
 
   allowed_service_users = [
