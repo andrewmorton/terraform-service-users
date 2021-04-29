@@ -10,6 +10,8 @@ locals {
   "route53:*",
   "sqs:*",
   "sns:*",
+  "eks:*",
+  "rds:*",
   ]
 
   allowed_service_users = [
