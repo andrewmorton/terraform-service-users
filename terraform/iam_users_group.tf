@@ -34,3 +34,8 @@ resource aws_iam_group_policy_attachment "service_group_policy_attachment" {
   group = aws_iam_group.service_users_group.name
   policy_arn = aws_iam_policy.service_users_group_policy.arn
 }
+
+resource aws_iam_group_policy_attachment "service_group_s3_policy_attachment" {
+  group = aws_iam_group.service_users_group.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonS3FullAccess"
+}
